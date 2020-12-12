@@ -14,3 +14,11 @@ def LCA(root, p, q):
         return left
 
     return root
+
+
+def LCA_BST(root, p, q):
+    if p.val < root.val and q.val < root.val:
+        return LCA_BST(root.left, p, q)
+    if p.val > root.val and q.val > root.val:
+        return LCA_BST(root.right, p, q)
+    return root
