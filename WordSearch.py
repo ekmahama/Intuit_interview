@@ -1,6 +1,11 @@
 def findWord(board, word):
     rows = len(board)
     cols = len(board[0])
+    for i in range(rows):
+        for j in range(cols):
+            if backtrack(i,j,word):
+                return True
+    return False
 
     def backtrack(i, j, word):
         steps = [(0, 1), (1, 0), (0, -1), (-1, 0)]
@@ -12,7 +17,7 @@ def findWord(board, word):
 
         # check if first charater matches
         if word[0] != board[i][j]:
-            return True
+            return False
         ret = False
 
         # Mark visited cell
